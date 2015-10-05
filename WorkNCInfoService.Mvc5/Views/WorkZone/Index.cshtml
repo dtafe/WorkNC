@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WorkNCInfoService.Mvc5.Models.WorkModels.WorkNC_WorkZone>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" >
+    <tr style="background-color: green; color: white;">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FactoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModelDataProgramer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NCDataProgramer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModelName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MachiningTimeTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FactoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModelDataProgramer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NCDataProgramer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgramDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModelName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MachiningTimeTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WorkZoneId })
+            @Html.ActionLink("Details", "Details", new { id=item.WorkZoneId })
+            @Html.ActionLink("Delete", "Delete", new { id=item.WorkZoneId })
+        </td>
+    </tr>
+}
+
+</table>
