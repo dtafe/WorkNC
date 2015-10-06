@@ -5,12 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table" >
+<table class="table">
     <tr style="background-color: green; color: white;">
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -49,46 +44,52 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
+    <tr style="border: solid 1px green;">
+        <td class="td-border">
             @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
+        </td class="td-border">
+        <td class="td-border">
             @Html.DisplayFor(modelItem => item.CompanyName)
-        </td>
-        <td>
+        </td class="td-border">
+        <td class="td-border">
             @Html.DisplayFor(modelItem => item.FactoryName)
-        </td>
-        <td>
+        </td class="td-border">
+        <td class="td-border">
             @Html.DisplayFor(modelItem => item.ModelDataProgramer)
-        </td>
-        <td>
+        </td class="td-border">
+        <td class="td-border">
             @Html.DisplayFor(modelItem => item.NCDataProgramer)
-        </td>
-        <td>
+        </td class="td-border">
+        <td class="td-border">
             @Html.DisplayFor(modelItem => item.ProgramDate)
-        </td>
-        <td>
+        </td class="td-border">
+        <td class="td-border">
             @Html.DisplayFor(modelItem => item.ModelName)
-        </td>
-        <td>
+        </td class="td-border">
+        <td class="td-border">
             @Html.DisplayFor(modelItem => item.Parts)
-        </td>
-        <td>
+        </td class="td-border">
+        <td class="td-border">
             @Html.DisplayFor(modelItem => item.PartName)
-        </td>
-        <td>
+        </td class="td-border">
+        <td class="td-border">
             @Html.DisplayFor(modelItem => item.MachiningTimeTotal)
-        </td>
-        <td>
+        </td class="td-border">
+        <td class="td-border">
             @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
+        </td class="td-border">
+        <td class="td-border">
             @Html.ActionLink("Edit", "Edit", new { id=item.WorkZoneId })
             @Html.ActionLink("Details", "Details", new { id=item.WorkZoneId })
             @Html.ActionLink("Delete", "Delete", new { id=item.WorkZoneId })
-        </td>
+        </td class="td-border">
     </tr>
 }
 
 </table>
+
+<style>
+    .td-border{
+        border: 1px solid green;
+    }
+</style>
