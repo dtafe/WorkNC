@@ -160,12 +160,12 @@ namespace WorkNCInfoService.Mvc5.Controllers
             return new JsonResult { Data = allFactory, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             //return PartialView("_Search");
         }
-        public JsonResult GetMachine(int FactoryId)
+        public JsonResult GetMachine(int factoryId)
         {
             List<WorkNC_Machine> allMachine = new List<WorkNC_Machine>();
             using (WorkNCDbContext db = new WorkNCDbContext())
             {
-                allMachine = db.WorkNC_Machine.Where(n => n.FactoryId.Equals(FactoryId)).OrderBy(n => n.Name).ToList();
+                allMachine = db.WorkNC_Machine.Where(n => n.FactoryId.Equals(factoryId)).OrderBy(n => n.Name).ToList();
             }
             return new JsonResult { Data = allMachine, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }

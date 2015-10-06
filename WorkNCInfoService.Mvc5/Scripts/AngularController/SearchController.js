@@ -5,11 +5,11 @@
     $scope.FactoryList = null;
     $scope.MachineList = null;
 
-    $scope.MachineTextToShow = 'Select factory';
+    $scope.MachineTextToShow = "Select factory";
     $scope.Result = "";
 
     //populate Factory
-    LocationService.GetFactory().them(function (d) {
+    LocationService.GetFactory().then(function (d) {
         $scope.FactoryList = d.data;
     }, function (error) {
         alert(error);
@@ -19,12 +19,12 @@
     $scope.GetMachine = function () {
         $scope.MachineId = null;
         $scope.MachineList = null;
-        $scope.MachineTextToShow = 'Please wait...';
+        $scope.MachineTextToShow = "Please wait...";
 
         //load machine
-        LocationService.GetMachine($scope.FactoryId).them(function (d) {
+        LocationService.GetMachine($scope.FactoryId).then(function (d) {
             $scope.MachineList = d.data;
-            $scope.MachineTextToShow = 'select machine';
+            $scope.MachineTextToShow = "select machine";
         }, function (error) {
             alert(error);
         });
@@ -39,10 +39,10 @@
 .factory('LocationService', function ($http) {
     var fac = {};
     fac.GetFactory=function(){
-        return $http('/WorkZone/GetFactory')
+        return $http.get('/WorkZone/GetFactory')
     }
     fac.GetMachine = function (factoryId) {
-        return $http('/WorkZone/GetMachine?factoryId'+factoryId)
+        return $http.get('/WorkZone/GetMachine?factoryId'+factoryId)
     }
     return fac;
 });
